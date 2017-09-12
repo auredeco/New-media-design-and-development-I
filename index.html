@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <title>Equatr</title>
+  <link rel="stylesheet" href="app/styles/css/vendor/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="app/styles/css/grid.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="app/styles/css/main.css">
+  <link rel="stylesheet" href="app/styles/css/countries.css">
+  <link rel="stylesheet" href="app/styles/css/offcanvas.css">
+  <link rel="stylesheet" href="app/styles/css/details.css">
+   <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+  <!--[if lt IE 9]-->
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <!--[endif]-->
+</head>
+	<body>
+    <div class="grid__wrapper">
+        <div class="grid__container">
+           <!-- Offcanvas -->
+		<div class="offcanvas">
+			<!-- Offcanvas Navigation -->
+			<nav class="offcanvas__navigation">
+				<ul class="clearfix">
+					<li><a class="navigation__item" href="#/start" title="Back to the homepage"><span class="fa fa-home fa-4x"></span>Home</a></li>
+					<li><a class="navigation__item user" href="#/userPage" title="user page"><span class="fa fa-user fa-4x"></span>User</a></li>
+					<li><a class="navigation__item" href="#/bookmarks" title="show bookmarks"><span class="fa fa-star fa-4x"></span>Bookmarks</a></li>
+					<li><a class="navigation__item logOut" href="#/login" title="log out"><span class="fa fa-sign-out fa-4x"></span>Log Out</a></li>
+                    <li><img src="app/images/Equatr_Logo.svg" class="nav-logo"></li>
+				</ul>
+			</nav><!-- End Offcanvas Navigation -->
+			
+		</div><!-- End Offcanvas -->
+		
+		<!-- Header Wrapper -->
+		<div class="grid__wrapper header-wrapper">
+			<div class="grid__container">
+				<div class="grid__row">
+					<div class="grid__column-bp1-12">
+						<header class="header">
+                             <img src="app/images/Equatr_Logo-2.svg" class="small-logo">
+							<!-- Navigation Toggle 
+							data-navtype="headernav-open" when responsive push down menu
+							data-navtype="offcanvas-open" when responsive offcanvas
+							-->
+							<a class="navigation-toggle header__navigation-toggle" href="#" data-navtype="offcanvas-open">
+								<span>Toggle</span>
+							</a><!-- End Navigation Toggle -->
+                            
+							<!-- Navigation -->
+							<nav class="header__navigation">
+								<ul class="clearfix">
+									<li><a class="navigation__item" href="#/start" title="Back to the homepage">Home</a></li>
+									<li><a class="navigation__item user" href="#/userPage" title="Read my blog">User</a></li>
+									<li><a class="navigation__item" href="#/bookmarks" title="Read about me">Bookmarks</a></li>
+                                    <li><a class="navigation__item logOut" href="#/login" title="Contact me">Log out</a></li>
+								</ul>
+							</nav><!-- End Navigation -->
+						</header>
+					</div>
+				</div>
+			</div>
+		</div><!-- End Header Wrapper -->
+
+
+
+            <!-- PAGES -->
+
+
+            <!-- Login page -->
+            <div class="page active fullscreen" id="login">
+                <div class="grid__wrapper">
+                    <div class="grid__container">
+                        <div class="grid__row">
+                            <div class="grid__column grid__column-bp1-8 grid__offset-bp1-2">
+                                <img src="app/images/Equatr_Logo_LOGIN.svg" class="grid grid__column-bp1-12 grid__column-bp3-8 grid__offset-bp3-2 grid__column-bp5-6 grid__offset-bp5-3">
+                            </div>
+                            <section id="loginPage">
+                                <div class="grid__row">
+                                    <div class="grid__column grid__column-bp1-8 grid__offset-bp1-2">
+                                        <label>Username</label><br>
+                                        <input class="grid__column-bp1-12" type="text" name="userName" id="userName"><br>
+                                        <label>Password</label><br>
+                                        <input class="grid__column-bp1-12" type="password" name="password" id="password">
+                                        <p id="fergotPass"><a href="#">Forgot your password?</a></p>
+
+                                        <a id="registerButton" href="#/register" class="grid__column grid__column-bp1-5 navigation__item">Register</a>
+                                        <a id="aanmeldButton" href="#/start"class="grid__column grid__column-bp1-5 grid__offset-bp1-2">Sign In</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Login page -->
+
+
+            <!-- Page: register -->
+            <div class="page fullscreen" id="register">
+                <div class="theader">
+                </div>
+                <div class="tmain">
+                    <div class="tcentered">
+                        <div class="grid__container">
+                            <div class="grid__row">
+                                <section id="registerPage">
+                                     <div class="grid__column-bp1-8 grid__offset-bp1-2">
+                                        <img src="app/images/Equatr_Logo_LOGIN.svg" class="grid grid__column-bp1-12 grid__column-bp3-8 grid__offset-bp3-2 grid__column-bp5-6 grid__offset-bp5-3">
+                                     </div>
+                                    <a href="#/login"><i class="fa fa-arrow-right fa-2x"></i></a>
+                                    <form id="registerForm">
+                                        <div id="firstNameSection" class="grid__column-bp1-12 grid__column-bp3-5 grid__offset-bp3-1">
+                                            <label class="grid__column-bp1-12">First name:</label><br>
+                                            <input class="grid__column-bp1-12 grid__column-bp3-10" type="text" name="firstName"><br>
+                                        </div>
+                                        <div id="lastNameSection" class="grid__column-bp1-12 grid__column-bp3-5">
+                                            <label class="grid__column-bp1-12">Last name:</label><br>
+                                            <input class="grid__column-bp1-12 grid__column-bp3-10" type="text" name="lastName"><br>
+                                        </div>
+                                        <div id="nationalitySection" class="grid__column-bp1-12 grid__column-bp3-2 grid__offset-bp3-1">
+                                            <label class="grid__column-bp1-12">Country:</label><br>
+                                            <select class="grid__column-bp1-12 grid__column-bp3-10" id="nationality"><br>
+                                            </select><br>
+                                        </div>
+                                        <div id="genderSection" class="grid__column-bp1-12 grid__column-bp3-2 grid__offset-bp3-1">
+                                            <label class="grid__column-bp1-12">Gender:</label><br>
+                                            <select class="grid__column-bp1-12 grid__column-bp3-7" name="gender"><br>
+                                                <option value="man">Male</option><br>
+                                                <option value="vrouw">Female</option><br>
+                                            </select>
+                                        </div>
+                                        <div id="birthdaySection" class="grid__column-bp1-12 grid__column-bp3-6">
+                                            <label class="grid__column-bp1-12">Birthday:</label><br>
+                                            <select class="grid__column-bp1-2" name="day">
+                                            </select>
+                                            <select class="grid__column-bp1-4 grid__column-bp3-3 grid__offset-bp1-1" name="month">
+                                            </select>
+                                            <select class="grid__column-bp1-2  grid__offset-bp1-1" name="year"><br>
+                                            </select>
+                                        </div>
+                                        <div id="emailSection" class="grid__column-bp1-12 grid__column-bp3-5 grid__offset-bp3-1">
+                                            <label class="grid__column-bp1-12">E-mailadress:</label>
+                                            <input class="grid__column-bp1-10" type="email" name="emailadress">
+                                        </div>
+                                        <div id="usernameSection" class="grid__column-bp1-12 grid__column-bp3-5">
+                                            <label class="grid__column-bp1-12">Username:</label><br>
+                                            <input class="grid__column-bp1-10" type="text" name="username"><br>
+                                        </div>
+                                        <div id="passwordSection"  class="grid__column-bp1-12 grid__column-bp3-5 grid__offset-bp3-1">
+                                            <label class="grid__column-bp1-12">Password:</label><br>
+                                            <input class="grid__column-bp1-10" type="password" name="password1"><br>
+                                        </div>
+                                        <div id="confirmPasswordSesction" class="grid__column-bp1-12 grid__column-bp3-5">
+                                            <label class="grid__column-bp1-12">Repeat password:</label><br>
+                                            <input class="grid__column-bp1-10" type="password" name="password2"><br>
+                                        </div>
+                                        <div id="buttonSection" class="grid__column-bp1-12 grid__column-bp3-5 grid__offset-bp3-1">
+                                             <a id="btn_register" href="#/login" class="navigation__item">Register</a>
+                                        </div>
+                                    </form>   
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- End Page: register -->
+            
+            <!-- Page: startPage -->
+            <div class="page fullscreen background tcontainer section" id="start">
+                <div class="theader">
+                </div>
+                <div class="tmain">
+                    <div class="tcentered">
+                        <div class="grid__container">
+                            <div class="grid__row">
+                                <section id="countries">
+                                    <h2>List of countries</h2>
+                                    <section class="countries-list"></section>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Page: startPage -->
+            
+            <!-- Page: country-datails page -->
+            <div class="page fullscreen background tcontainer section addMargin" id="countries_details">
+                <div class="theader">
+                </div>
+                <div class="tmain">
+                    <div class="tcentered">
+                        <div class="grid__container">
+                            <div class="grid__row">
+                                <div class="grid__column-bp1-12">
+                                    <section>
+							           <div class="grid__row country-details country__details"></div>
+                                    </section>
+						       </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Page: startPage -->   
+            
+            <!-- User page -->
+            <div class="page fullscreen background tcontainer addMargin" id="userPage">
+                <div class="theader">
+                </div>
+                <div class="tmain">
+                    <div class="tcentered">
+                        <div class="grid__container">
+                            <div class="grid__row">
+                                <section id="user_Page">
+                                    <h1>Current logged in user</h1>
+                                        <p>voornaam</p>
+                                        <p>naam</p>
+                                        <p>nationaliteit</p>
+                                        <p>geslacht</p>
+                                        <p>geboorte dag</p>
+                                        <p>email</p>
+                                        <p>gebruikersnaam</p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Page: User page -->
+       
+            <!-- Page: bookmarks -->
+            <div class="page fullscreen background tcontainer" id="bookmarks">
+                <div class="theader">
+                </div>
+                <div class="tmain">
+                    <div class="tcentered">
+                        <div class="grid__container">
+                            <div class="grid__row">
+                                <section id="bookmarksPage">
+                                    <h1>Bookmarks</h1>
+                                    <secion id="bookmarks-list">
+                                    </section>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Page: bookmarks -->
+            
+          <!-- Handlebars Templates -->
+		  <script id="countries-list-template" type="text/x-handlebars-template">
+			{{#if this}}
+			<ul class="grid__row">
+				{{#each this}}
+				<li class="grid__column-bp1-12">
+					<a data-id="{{iso2Code}}" class="btn-readmore" href="#/countries/details/{{iso2Code}}" title="Detail fro the country: {{name}}">
+                        <div class="country__listitem" data-id="{{id}}">
+                            <img class="country__flag details__flag" src="http://www.geonames.org/flags/x/{{toLowerCase iso2Code}}.gif" />
+                            <div class="country__title">
+                                <i class="fa fa-arrow-right fa-2x"></i>
+                                <h3>{{name}} <small>({{iso2Code}})</small></h3>
+                            </div>
+					   </div>
+					</a>
+				</li>
+				{{/each}}
+			</ul>
+			{{else}}
+				<p>No countries present in the Worldbank database!</p>
+			{{/if}}
+		</script>
+        <script id="country-details-template" type="text/x-handlebars-template">
+            <div id="countryDetails" class="grid__column-bp1-12  grid__column-bp3-6">
+                {{#if this}}
+                    {{#if this.info}}
+                    <div class="bookmark-icon">
+                        <a href="#"><i class="fa fa-star fa-2x"></i></a>
+                    </div>
+                    <h1 class="country-details-title grid__column-bp1-10">{{this.info.name}}</h1>
+                    <img class="country__flag grid__column-bp1-6" src="http://www.geonames.org/flags/x/{{toLowerCase this.info.iso2Code}}.gif" />
+                    {{/if}}
+                    {{#if this.forrestArea}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-forrestarea">
+                                <h3>Forest Area</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-forrestarea-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.unemployment}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-unemployment">
+                                <h3>Unemployment in %</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-unemployment-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.births}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-birthsPerWoman">
+                                <h3>births</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-birthsPerWoman-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.population}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-population">
+                                <h3>population growth in %</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-population-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.deathRate}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-deathRate">
+                                <h3>Death rate per 1000</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-deathRate-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                {{else}}
+                    <p>No country present in the Worldbank database with the selected ISO2Code!</p>
+                {{/if}}
+            </div>
+            <div id="compareWithUserInfo" class="grid__column-bp1-12 grid__column-bp3-6">
+                {{#if this}}
+                    {{#if this.info}}
+                    <h1 class="country-details-title grid__column-bp1-10">Belgium</h1>
+                    <img class="country__flag grid__column-bp1-6" src="http://www.geonames.org/flags/x/be.gif" />
+                    {{/if}}
+                    {{#if this.forrestArea}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-forrestarea">
+                                <h3>Forrest Area</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-forrestarea-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.unemployment}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-unemployment">
+                                <h3>Unemployment in %</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-unemployment-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.births}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-birthsPerWoman">
+                                <h3>births</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-birthsPerWoman-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.population}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-population">
+                                <h3>population growth in %</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-population-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if this.deathRate}}
+                        <div class="grid__column-bp1-12">
+                            <div class="country-details-deathRate">
+                                <h3>Death rate per 1000</h3>
+                                <div class="ct-chart ct-minor-seventh country-details-deathRate-chart">
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                {{else}}
+                    <p>No country present in the Worldbank database with the selected ISO2Code!</p>
+                {{/if}}
+            </div>
+		</script>
+		<!-- End Handlebars Templates -->
+
+      </div> <!-- End Container -->
+    </div> <!-- End Wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+	<script src="app/scripts/js/vendor/signals.js"></script>	
+	<script src="app/scripts/js/vendor/hasher.js"></script>
+	<script src="app/scripts/js/vendor/crossroads.js"></script>	
+	<script src="app/scripts/js/helpers.js"></script>	
+    <script src="app/scripts/js/utilities.js"></script>	
+    <script src="app/scripts/js/jaywalker.js"></script> 
+    <script src="app/scripts/js/interface_elements.js"></script>
+    <script src="app/scripts/js/user.js"></script>		
+	<script src="app/scripts/js/main.js"></script>
+	</body>
+</html>

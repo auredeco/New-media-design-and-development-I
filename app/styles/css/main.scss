@@ -1,0 +1,205 @@
+@import "variables.scss";
+
+$smallMargin: 5rem;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: $brown;
+    background: $white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Economica', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    color: $green;
+    float:right;
+	margin-bottom:15px;
+}
+.bookmark {
+    float:left;
+}
+input, select {
+    margin-bottom: 1rem;   
+}
+
+.small-logo {
+    height: 60px;
+    width: auto;
+}
+
+#compareWithUserInfo {
+    text-align: right;
+}
+#compareWithUserInfo img {
+    float:right;
+}
+
+/* Header */
+.header-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 998;
+	display: none;
+	background: $lime;
+    height: 4rem;
+	margin-bottom: 5rem;
+    div > div > div {
+        margin-bottom: 0;
+    }
+    .header {
+
+        .header__navigation-toggle {
+            float:right;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            color: rgba(0,157,220, 1);
+            span {
+                display: none;
+            }
+        }
+        .header__navigation-toggle::before {
+            display: block;
+            content: '\f0c9';
+            font-family: FontAwesome;
+            font-size: 2rem;
+            transition: all 320ms ease-out 0s;
+        }
+    }
+    .header::before, #header::after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden; 
+    }
+    .header::after {
+        clear: both; 
+    }
+}
+
+.offcanvas-open .header__navigation-toggle::before,
+.headernav-open .header__navigation-toggle::before {
+	transform: rotate(90deg);
+	transition: all 320ms ease-out 0s;
+}
+
+.header__navigation {
+	float: right;
+	width: 100%;
+	display: none;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            float: left;
+            width: 100%;
+        }
+    }	
+}
+.headernav-open #header__navigation {
+	display: block;
+}
+
+.header__navigation {
+    .navigation__item {
+        display: block;
+        height: 32px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-decoration: none;
+        color: $white;
+        font-weight: 700;
+        text-transform: uppercase; 
+    }
+    .navigation__item:hover {
+        background: darken($green, 2%)
+    }
+
+}
+
+/* Pages */
+#login {
+    margin-top: $smallMargin ;
+    overflow: hidden;
+    
+    #registerButton {
+        background: $green;
+        padding: 1rem;
+        color: $white;
+        text-align: center; 
+    }
+    #aanmeldButton {
+        background: $lime;
+        padding: 1rem;
+        color: $white;
+        text-align: center;
+    }
+}
+
+#registerForm  {
+    margin: $smallMargin;
+    
+    a {
+        float:left;
+        background: $green;
+        padding: 1rem;
+        color: $white;
+        text-align: center;
+        border: none;   
+    }
+}
+
+/* Add margin to the application pages */
+#start, #bookmarks, #userPage, #detailsPage, #compareWithUserInfo, #countryDetails {
+    margin-top: $smallMargin;
+}
+
+
+
+@media (min-width: 30rem) {
+	.header__navigation {
+		width: 100%;
+        ul > li {
+            width: 50%;
+        }
+         ul > li:last-of-type {
+            width: 100%;
+        }
+        .navigation__item {
+            height: 64px;
+            line-height: 64px;
+            text-align: center;
+        }
+	}
+}
+@media (min-width: 42.5rem) {
+	.offcanvas {
+		display: none;
+	}
+	.header__navigation-toggle {
+		display: none;
+	}
+	.header__navigation {
+		width: auto;
+		display: block;
+        ul > li {
+            width: auto;
+        }
+        ul > li:last-of-type {
+            width: auto;
+        }
+        .navigation__item {
+            text-align: left;
+        }
+	}
+}
